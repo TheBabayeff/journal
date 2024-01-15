@@ -40,6 +40,7 @@ class NewsResource extends Resource
                 Forms\Components\Select::make('author_id')
                     ->relationship('author', 'name'),
                 Forms\Components\FileUpload::make('photo')
+                    ->downloadable()
                     ->required(),
                 Forms\Components\MarkdownEditor::make('content')
                     ->required()

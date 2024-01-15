@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\JournalResource\Pages;
-use App\Filament\Resources\JournalResource\RelationManagers;
-use App\Models\Journal;
+use App\Filament\Resources\ChairmenResource\Pages;
+use App\Filament\Resources\ChairmenResource\RelationManagers;
+use App\Models\Chairmen;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,11 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class JournalResource extends Resource
+class ChairmenResource extends Resource
 {
-    protected static ?string $model = Journal::class;
-    protected static ?string $pluralModelLabel = 'Jurnal';
-
+    protected static ?string $model = Chairmen::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -25,16 +23,17 @@ class JournalResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('title')
+                    ->required()
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('pdf')
-                    ->acceptedFileTypes(['application/pdf']),
                 Forms\Components\FileUpload::make('image')
                     ->downloadable()
-                    ->image(),
-                Forms\Components\Toggle::make('is_visible')
-                    ->required(),
-                Forms\Components\DatePicker::make('published_at'),
+                    ->directory('chairmen-photos')
+                    ->required()
+                    ->columnSpanFull(),
+                Forms\Components\MarkdownEditor::make('description')
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
@@ -42,16 +41,8 @@ class JournalResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('pdf')
-                    ->searchable(),
-                Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\IconColumn::make('is_visible')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('published_at')
-                    ->date()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -84,9 +75,9 @@ class JournalResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListJournals::route('/'),
-            'create' => Pages\CreateJournal::route('/create'),
-            'edit' => Pages\EditJournal::route('/{record}/edit'),
+            'index' => Pages\ListChairmens::route('/'),
+            'create' => Pages\CreateChairmen::route('/create'),
+            'edit' => Pages\EditChairmen::route('/{record}/edit'),
         ];
     }
 }

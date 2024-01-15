@@ -5,13 +5,13 @@
         <div class="swiper-container slider-images">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" data-background="assets/images/slides/slide22.jpg">
-                    <div class="mobile-slide" data-background="assets/images/slide-mobile01.jpg"></div>
+                    <div class="mobile-slide" data-background="assets/images/slides/mobile/3.png"></div>
                 </div>
                 <div class="swiper-slide" data-background="assets/images/slides/slide23.jpg">
-                    <div class="mobile-slide" data-background="assets/images/slide-mobile02.jpg"></div>
+                    <div class="mobile-slide" data-background="assets/images/mobile/2.png"></div>
                 </div>
                 <div class="swiper-slide" data-background="assets/images/slides/slide25.jpg">
-                    <div class="mobile-slide" data-background="assets/images/slide-mobile03.jpg"></div>
+                    <div class="mobile-slide" data-background="assets/images/mobile/1.png"></div>
                 </div>
             </div>
             <!-- end swiper-wrapper -->
@@ -85,15 +85,37 @@
         <!-- end play-now -->
     </header>
     <!-- end slider -->
-
     <section class="content-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center">
                         <figure><img src="{{ asset('assets/images/qorqud.png') }}" alt="Image"></figure>
-                        <h6>Get Latest Updates and News</h6>
-                        <h2>Recent News</h2>
+                        <h6>Təqdim edilmiş Ordenlərimiz</h6>
+                        <h2>Ordenlər</h2>
+                    </div>
+                    <!-- end section-title -->
+                </div>
+                <!-- end col-12 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+        <div class="container align-items-center">
+            <img  src="assets/images/orden2.png" alt="">
+            <img  src="assets/images/orden4.png" alt="">
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </section>
+    <section class="content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="section-title text-center">
+                        <figure><img src="{{ asset('assets/images/qorqud.png') }}" alt="Image"></figure>
+                        <h6>Son xəbərlər və yeniliklər</h6>
+                        <h2>Son Xəbərlər</h2>
                     </div>
                     <!-- end section-title -->
                 </div>
@@ -107,20 +129,23 @@
                 <div class="col-12">
                     @foreach($news AS $n)
                     <div class="recent-news">
-                        <div class="content-box"> <small>Dec 26, 2020</small>
-                            <h3>The Ultimate Guide To
-                                Knots Practice Kit</h3>
+                        <div class="content-box"> <small>{{ \Carbon\Carbon::parse($n->published_at)->format('M d, Y') }}</small>
+                            <h3>{{ $n->title }}</h3>
                             <p>{{ \Illuminate\Support\Str::limit($n->content, 200) }}</p>
-                            <a href="#" class="custom-link">Ətraflı oxu</a> </div>
+                            <a href="{{ route('news.show', $n->slug) }}" class="custom-link">Ətraflı oxu</a> </div>
                         <!-- end content-box -->
-                        <figure data-scroll data-scroll-speed="-1"><img src="{{ asset("storage/".$n->photo) }}" alt="Image"></figure>
+                        <figure data-scroll data-scroll-speed="-1">
+                            <a href="{{ route('news.show', $n->slug) }}">
+                            <img  src="{{ asset("storage/".$n->photo) }}" alt="Image">
+                            </a>
+                        </figure>
                     </div>
                     @endforeach
                     <!-- end recent-news -->
                 </div>
                 <!-- end col-8 -->
                 <!-- end col-9 -->
-                <div class="col-12 text-center"> <a href="news.html" class="circle-button">SEE ALL<br>
+                <div class="col-12 text-center"> <a href="{{ route('news') }}" class="circle-button">SEE ALL<br>
                         NEWS</a> </div>
                 <!-- end col-12 -->
             </div>
@@ -129,6 +154,45 @@
         <!-- end container -->
     </section>
     <!-- end content-section -->
+
+    <section class="content-section no-bottom-spacing">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h6>{{ __('frontend.chairmen') }}</h6>
+                        <h2>{{ __('frontend.chairmen') }}</h2>
+                    </div>
+                    <!-- end section-title -->
+                </div>
+                <!-- end col-12 -->
+                <div class="col-12">
+                    <div class="image-box-carousel">
+                        <div class="swiper-wrapper">
+                            @foreach($chairmens AS $chairmen)
+                            <div class="swiper-slide">
+                                <figure><img data-fancybox src="{{ asset("storage/" . $chairmen->image) }}" alt="Image"></figure>
+                                <div class="content-box">
+                                    <h5>{{ $chairmen->title }}</h5>
+                                    <a href="#" class="custom-link">Read More</a>
+                                </div>
+                                <!-- end content-box -->
+                            </div>
+                            @endforeach
+                            <!-- end swiper-slide -->
+                        </div>
+                        <!-- end swiper-wrapper -->
+                    </div>
+                    <!-- end image-box-carousel -->
+                </div>
+                <!-- end col-12 -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
+    </section>
+    <!-- end content-section -->
+
     <section class="content-section">
         <div class="container">
             <div class="section-title text-center">
@@ -168,7 +232,7 @@
 
                             <div class="swiper-wrapper">
                                 @foreach($journals AS $journal)
-                                <div class="swiper-slide"> <img src="{{ asset("storage/".$journal->image) }}" alt="Image"> </div>
+                                <div class="swiper-slide"> <img data-fancybox src="{{ asset("storage/".$journal->image) }}" alt="Image"> </div>
                                 @endforeach
                                 <!-- end swiper-slide -->
                             </div>
@@ -186,7 +250,6 @@
     </section>
     <!-- end content-section -->
 
-
     <section class="content-section">
         <div class="video-bg">
             <video src="assets/videos/video2.mp4" loop autoplay playsinline muted></video>
@@ -201,7 +264,6 @@
         </div>
         <!-- end container -->
     </section>
-
 
     <section class="content-section no-bottom-spacing bottom-white" data-background="#fffbf7">
         <div class="container">
@@ -265,17 +327,11 @@
                 <div class="scroll-wrapper">
                     <div class="container-fluid">
                         <div class="row">
+                            @foreach($galleries AS $gallery)
                             <div class="col-md-3">
-                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="assets/images/gallery1.jpeg" alt="Image"> </figure>
+                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="{{ asset("storage/" . $gallery->image) }}" alt="{{ $gallery->name }}"> </figure>
                             </div>
-                            <!-- end col-3 -->
-                            <div class="col-md-4 offset-md-1">
-                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="assets/images/gallery7.jpeg" alt="Image"> </figure>
-                            </div>
-                            <!-- end col-3 -->
-                            <div class="col-md-2 offset-md-1">
-                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="assets/images/gallery3.jpeg" alt="Image"> </figure>
-                            </div>
+                            @endforeach
                             <!-- end col-3 -->
                         </div>
                         <!-- end row -->
@@ -329,47 +385,20 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="collection-box" data-scroll data-scroll-speed="1.5" >
                         <figure><img src="{{ asset("storage/".$article->photo) }}" alt="Image"></figure>
-                        <h4><a href="collection-detail.html">Hammersmith: Kelmscott Press.</a></h4>
-                        <p>The Works of Geoffrey Chaucer Now
-                            Newly Imprinted, by William Morris & Sir
-                            Edward Burne-Jones, 1896, Hammersmith:
-                            Kelmscott Press.</p>
+                        <h4><a href="{{ route('article.show', $article->slug) }}">{{ \Illuminate\Support\Str::limit($article->title, 25) }}</a></h4>
+                        <p>{{ \Illuminate\Support\Str::limit($article->content, 150) }}</p>
                     </div>
                     <!-- end collection-box -->
                 </div>
                 @endforeach
             </div>
+            <div class="col-12 text-center"> <a href="{{ route('articles') }}" class="circle-button">SEE ALL<br>
+                    Articles</a> </div>
             <!-- end row -->
         </div>
         <!-- end container -->
     </section>
-    <section class="content-section no-spacing" data-background="#DEB887">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="newsletter-box">
-                        <div class="form">
-                            <div class="titles">
-                                <h6>Subscribe Newsletter</h6>
-                                <h2>{{ __('frontend.subscribe_us') }}</h2>
-                            </div>
-                            <!-- end titles -->
-                            <div class="inner">
-                                <input type="email" placeholder="Enter your e-mail address">
-                                <input type="submit" value="{{ __('frontend.subscribe') }}">
-                            </div>
-                            <!-- end inner -->
-                            <small>Will be used in accordance with our <a href="#">Privacy Policy</a></small> </div>
-                        <!-- end form -->
-                        <figure class="newsletter-image" data-scroll data-scroll-speed="0.7"><img src="{{ asset('assets/images/qorqud.png') }}" style="width: 40%" alt="Image"></figure>
-                    </div>
-                    <!-- end newsletter-box -->
-                </div>
-                <!-- end col-12 -->
-            </div>
-            <!-- end row -->
-        </div>
-        <!-- end container -->
-    </section>
+    @include('frontend.components.subscribe')
+
 
 @endsection

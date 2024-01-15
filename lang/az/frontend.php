@@ -10,4 +10,5 @@ return [
     'news' => 'Xəbərlər',
     'subscribe' => 'Abunə ol',
     'subscribe_us' => 'Elə indi abunə olun !',
+    'chairmen' => 'İdarə Heyəti',
 ];

@@ -43,6 +43,8 @@ class ArticleResource extends Resource
                     ->required(),
 
                 Forms\Components\FileUpload::make('photo')
+                    ->downloadable()
+                    ->directory('article-photos')
                     ->required(),
                 Forms\Components\MarkdownEditor::make('content')
                     ->required()

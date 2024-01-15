@@ -10,4 +10,6 @@ return [
     'news' => 'News',
     'subscribe' => 'Subscribe',
     'subscribe_us' => 'Sign up to get the latest news',
+    'chairmen' => 'Chairmen',
+
 ];

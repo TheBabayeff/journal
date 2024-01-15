@@ -62,7 +62,7 @@ theme.
 
 
 */
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&amp;family=DM+Sans:wght@400;500;700&amp;display=swap");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 * {
   outline: none !important;
 }
@@ -70,7 +70,7 @@ theme.
 body {
   margin: 0;
   padding: 0;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 17px;
 }
 

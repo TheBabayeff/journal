@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('language/{locale}', function ($locale) {
-    if (! in_array($locale, ['en', 'ru', 'az'])) {
+    if (! in_array($locale, ['en', 'ru', 'az', 'tr'])) {
         abort(400);
     }
     app()->setLocale($locale);
@@ -27,6 +29,15 @@ Route::get('language/{locale}', function ($locale) {
 
 
 
+
 Route::get('/', [HomeController::class, 'index'])->name('welcome');
+
+Route::get('/news',[NewsController::class,'index'])->name('news');
+Route::get('/news/{slug}',[NewsController::class,'show'])->name('news.show');
+
+Route::get('/articles',[ArticleController::class,'index'])->name('articles');
+Route::get('/articles/{slug}',[ArticleController::class,'show'])->name('article.show');
+
+
 
 

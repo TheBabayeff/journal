@@ -30,7 +30,7 @@
     <div class="inner">
         <canvas class="progress-bar" id="progress-bar" width="200" height="200"></canvas>
         <figure><img src="{{ asset('assets/images/qorqud.png') }}" alt="Image"></figure>
-        <small>Loading</small> </div>
+        <small>Azərbaycan Dünyası</small> </div>
     <!-- end inner -->
 </div>
 <!-- end preloder -->
@@ -40,7 +40,7 @@
     </svg>
 </div>
 <!-- end page-transition -->
-<div class="smooth-scroll">
+<div class="smooth-scroll" style="font-family: 'Nunito', sans-serif">
     <div class="section-wrapper" data-scroll-section>
         <div class="search-box">
             <div class="container">
@@ -53,13 +53,13 @@
                 <div class="search-events">
                     <ul>
                         <li>
-                            <h5><a href="#">Artemisia Gentileschi talk with Maria</a></h5>
+                            <h5><a href="#">"Azərbaycan Dünyası" jurnalının İdarə Heyyəti</a></h5>
                             <small>15 August – 31 October 2020</small> </li>
                         <li>
-                            <h5><a href="#">Artemisia Gentileschi talk with Maria</a></h5>
+                            <h5><a href="#">İnformasiya Nazirliyində qeydiyyatdan keçmişdir. Maria</a></h5>
                             <small>15 August – 31 October 2020</small> </li>
                         <li>
-                            <h5><a href="#">Artemisia Gentileschi talk with Maria</a></h5>
+                            <h5><a href="#">İnformasiya Nazirliyində qeydiyyatdan keçmişdir.</a></h5>
                             <small>15 August – 31 October 2020</small> </li>
                     </ul>
                 </div>
@@ -71,7 +71,7 @@
             <svg viewBox="0 0 600 1080" preserveAspectRatio="none" version="1.1">
                 <path d="M540,1080H0V0h540c0,179.85,0,359.7,0,539.54C540,719.7,540,899.85,540,1080z"></path>
             </svg>
-            <figure class="logo"> <img src="assets/images/World.png" alt="Image"> </figure>
+            <figure class="logo"> <img src="{{ asset("assets/images/World.png") }}" alt="Image"> </figure>
             <!-- end logo -->
             <div class="inner">
                 <div class="widget">
@@ -104,19 +104,20 @@
             <div class="display-mobile">
                 <div class="custom-menu">
                     <ul>
-                        <li><a href="#">Eng</a></li>
-                        <li><a href="#">Ru</a></li>
-                        <li><a href="#">Az</a></li>
+                        <li><a href="{{ route('locale' ,'en') }}">Eng</a></li>
+                        <li><a href="{{ route('locale' ,'ru') }}">Ru</a></li>
+                        <li><a href="{{ route('locale' ,'az') }}">Az</a></li>
+                        <li><a href="{{ route('locale' ,'tr') }}">Tr</a></li>
                     </ul>
                 </div>
                 <!-- end custom-menu -->
                 <div class="site-menu">
                     <ul>
-                        <li><a href="visit.html">{{ __('frontend.home') }}</a></li>
-                        <li><a href="exhibitions.html">{{ __('frontend.article') }}<</a></li>
-                        <li><a href="collections.html">{{ __('frontend.news') }}</a></li>
-                        <li><a href="about.html">{{ __('frontend.about') }}</a></li>
-                        <li><a href="contact.html">{{ __('frontend.contact') }}<</a></li>
+                        <li><a href="#">{{ __('frontend.home') }}</a></li>
+                        <li><a href="#">{{ __('frontend.article') }}<</a></li>
+                        <li><a href="#">{{ __('frontend.news') }}</a></li>
+                        <li><a href="#">{{ __('frontend.about') }}</a></li>
+                        <li><a href="#">{{ __('frontend.contact') }}</a></li>
                     </ul>
                 </div>
                 <!-- end site-menu -->
@@ -125,10 +126,11 @@
         </aside>
 
         <nav class="navbar">
-            <div class="logo"> <a href="{{ route('welcome') }}"> <img src="assets/images/World2.png" alt="Image"> </a> </div>
+            <div class="logo"> <a href="{{ route('welcome') }}"> <img src="{{  asset("assets/images/World2.png") }}" alt="Image"> </a> </div>
             <!-- end logo -->
             <div class="custom-menu">
                 <ul>
+                    <li><a href="{{ route('locale' ,'tr') }}">Tr</a></li>
                     <li><a href="{{ route('locale' ,'en') }}">Eng</a></li>
                     <li><a href="{{ route('locale' ,'ru') }}">Ru</a></li>
                     <li><a href="{{ route('locale' ,'az') }}">Az</a></li>
@@ -137,11 +139,11 @@
             <!-- end custom-menu -->
             <div class="site-menu">
                 <ul>
-                    <li><a href="visit.html">{{ __('frontend.home') }}</a></li>
-                    <li><a href="exhibitions.html">{{ __('frontend.article') }}</a></li>
-                    <li><a href="collections.html">{{ __('frontend.news') }}</a></li>
-                    <li><a href="about.html">{{ __('frontend.about') }}</a></li>
-                    <li><a href="contact.html">{{ __('frontend.contact') }}</a></li>
+                    <li><a href="{{ route('welcome') }}">{{ __('frontend.home') }}</a></li>
+                    <li><a href="#">{{ __('frontend.article') }}</a></li>
+                    <li><a href="#">{{ __('frontend.news') }}</a></li>
+                    <li><a href="#">{{ __('frontend.about') }}</a></li>
+                    <li><a href="#">{{ __('frontend.contact') }}</a></li>
                 </ul>
             </div>
             <!-- end site-menu -->
