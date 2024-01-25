@@ -140,10 +140,11 @@
             <div class="site-menu">
                 <ul>
                     <li><a href="{{ route('welcome') }}">{{ __('frontend.home') }}</a></li>
-                    <li><a href="#">{{ __('frontend.article') }}</a></li>
-                    <li><a href="#">{{ __('frontend.news') }}</a></li>
-                    <li><a href="#">{{ __('frontend.about') }}</a></li>
-                    <li><a href="#">{{ __('frontend.contact') }}</a></li>
+                    <li><a href="{{ route('articles')  }}">{{ __('frontend.article') }}</a></li>
+                    <li><a href="{{ route('news')  }}">{{ __('frontend.news') }}</a></li>
+                    <li><a href="{{ route('chairmen')  }}">{{ __('frontend.chairmen') }}</a></li>
+                    <li><a href="#">{{ __('frontend.gallery') }}</a></li>
+                    <li><a href="{{ route('contact')  }}">{{ __('frontend.contact') }}</a></li>
                 </ul>
             </div>
             <!-- end site-menu -->
@@ -171,10 +172,10 @@
                     <div class="col-lg-4 col-md-6">
                         <h6 class="widget-title">About Journal</h6>
                         <ul class="footer-menu">
-                            <li><a href="#">{{ __('frontend.about') }}</a></li>
-                            <li><a href="#">{{ __('frontend.contact') }}</a></li>
-                            <li><a href="#">{{ __('frontend.about') }}</a></li>
-                            <li><a href="#">{{ __('frontend.article') }}</a></li>
+                            <li><a href="{{ route('news') }}">{{ __('frontend.news') }}</a></li>
+                            <li><a href="{{ route('contact') }}">{{ __('frontend.contact') }}</a></li>
+                            <li><a href="{{ route('chairmen') }}">{{ __('frontend.chairmen') }}</a></li>
+                            <li><a href="{{ route('articles') }}">{{ __('frontend.article') }}</a></li>
                         </ul>
                     </div>
                     <!-- end col-4 -->

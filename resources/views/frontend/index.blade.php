@@ -68,7 +68,7 @@
             <!-- end swiper-wrapper -->
         </div>
         <!-- end slider-texts -->
-        <div class="play-now"> <a href="videos/video.mp4" data-fancybox data-width="640" data-height="360"  class="play-btn"></a>
+        <div class="play-now"> <a href="{{ asset('assets/videos/video.mp4') }}" data-fancybox data-width="640" data-height="360"  class="play-btn"></a>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
           <defs>
               <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
@@ -85,37 +85,17 @@
         <!-- end play-now -->
     </header>
     <!-- end slider -->
+
+
+
     <section class="content-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="section-title text-center">
                         <figure><img src="{{ asset('assets/images/qorqud.png') }}" alt="Image"></figure>
-                        <h6>Təqdim edilmiş Ordenlərimiz</h6>
-                        <h2>Ordenlər</h2>
-                    </div>
-                    <!-- end section-title -->
-                </div>
-                <!-- end col-12 -->
-            </div>
-            <!-- end row -->
-        </div>
-        <!-- end container -->
-        <div class="container align-items-center">
-            <img  src="assets/images/orden2.png" alt="">
-            <img  src="assets/images/orden4.png" alt="">
-            <!-- end row -->
-        </div>
-        <!-- end container -->
-    </section>
-    <section class="content-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="section-title text-center">
-                        <figure><img src="{{ asset('assets/images/qorqud.png') }}" alt="Image"></figure>
-                        <h6>Son xəbərlər və yeniliklər</h6>
-                        <h2>Son Xəbərlər</h2>
+                        <h6>{{ __('frontend.latest_news_and_updates') }}</h6>
+                        <h2>{{ __('frontend.news') }}</h2>
                     </div>
                     <!-- end section-title -->
                 </div>
@@ -173,17 +153,22 @@
                             <div class="swiper-slide">
                                 <figure><img data-fancybox src="{{ asset("storage/" . $chairmen->image) }}" alt="Image"></figure>
                                 <div class="content-box">
-                                    <h5>{{ $chairmen->title }}</h5>
-                                    <a href="#" class="custom-link">Read More</a>
+                                    <h5><a href="{{ route('chairmen.show' , $chairmen->id) }}">{{ $chairmen->title }}</a></h5>
+                                    <a href="{{ route('chairmen.show' , $chairmen->id) }}" class="custom-link">Ətraflı məlumat</a>
                                 </div>
                                 <!-- end content-box -->
                             </div>
                             @endforeach
+
                             <!-- end swiper-slide -->
+                        </div>
+                        <div class="col-12 text-center">
+                            <a href="{{ route('chairmen') }}" class="circle-button">SEE ALL</a>
                         </div>
                         <!-- end swiper-wrapper -->
                     </div>
                     <!-- end image-box-carousel -->
+
                 </div>
                 <!-- end col-12 -->
             </div>
@@ -202,7 +187,8 @@
             </div>
             <div class="row g-0 align-items-center">
                 <div class="col-lg-6">
-                    <div class="art-slider">
+
+                    <div class="art-slider" style="padding-bottom: 50px;">
                         <div class="titles">
                             <h6>Art Collection</h6>
                             <h2>History of <br>
@@ -223,7 +209,12 @@
                         </div>
                         <!-- end art-slider-content -->
                     </div>
+
                     <!-- end art-slider -->
+
+                        <a href="{{ route('journals') }}" class="circle-button">SEE ALL<br>
+                            JOURNALS</a>
+
                 </div>
                 <!-- end col-6 -->
                 <div class="col-lg-6">
@@ -252,7 +243,7 @@
 
     <section class="content-section">
         <div class="video-bg">
-            <video src="assets/videos/video2.mp4" loop autoplay playsinline muted></video>
+            <video src="{{ asset('assets/videos/video2.mp4') }}" loop autoplay playsinline muted></video>
         </div>
         <!-- end video-bg -->
         <div class="container">
@@ -342,17 +333,11 @@
                 <div class="scroll-wrapper">
                     <div class="container-fluid">
                         <div class="row">
+                            @foreach($galleries AS $gallery)
                             <div class="col-md-3">
-                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="assets/images/gallery4.jpg" alt="Image"> </figure>
+                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="{{ asset("storage/" . $gallery->image) }}" alt="Image"> </figure>
                             </div>
-                            <!-- end col-3 -->
-                            <div class="col-md-4 offset-md-1">
-                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="assets/images/gallery5.jpg" alt="Image"> </figure>
-                            </div>
-                            <!-- end col-3 -->
-                            <div class="col-md-2 offset-md-1">
-                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="assets/images/gallery6.jpg" alt="Image"> </figure>
-                            </div>
+                            @endforeach
                             <!-- end col-3 -->
                         </div>
                         <!-- end row -->
@@ -398,6 +383,8 @@
         </div>
         <!-- end container -->
     </section>
+
+
     @include('frontend.components.subscribe')
 
 

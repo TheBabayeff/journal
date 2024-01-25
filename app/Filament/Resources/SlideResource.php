@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\JournalResource\Pages;
-use App\Filament\Resources\JournalResource\RelationManagers;
-use App\Models\Journal;
+use App\Filament\Resources\SlideResource\Pages;
+use App\Filament\Resources\SlideResource\RelationManagers;
+use App\Models\Slide;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,11 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class JournalResource extends Resource
+class SlideResource extends Resource
 {
-    protected static ?string $model = Journal::class;
-    protected static ?string $pluralModelLabel = 'Jurnal';
-
+    protected static ?string $model = Slide::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -25,15 +23,17 @@ class JournalResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('title')
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('pdf'),
+                Forms\Components\Textarea::make('text')
+                    ->maxLength(65535)
+                    ->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')
-                    ->downloadable()
                     ->image(),
+                Forms\Components\TextInput::make('video')
+                    ->maxLength(255),
                 Forms\Components\Toggle::make('is_visible')
                     ->required(),
-                Forms\Components\DatePicker::make('published_at'),
             ]);
     }
 
@@ -41,16 +41,13 @@ class JournalResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('pdf')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('video')
+                    ->searchable(),
                 Tables\Columns\IconColumn::make('is_visible')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('published_at')
-                    ->date()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -83,9 +80,9 @@ class JournalResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListJournals::route('/'),
-            'create' => Pages\CreateJournal::route('/create'),
-            'edit' => Pages\EditJournal::route('/{record}/edit'),
+            'index' => Pages\ListSlides::route('/'),
+            'create' => Pages\CreateSlide::route('/create'),
+            'edit' => Pages\EditSlide::route('/{record}/edit'),
         ];
     }
 }

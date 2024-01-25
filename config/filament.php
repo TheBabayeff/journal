@@ -2,6 +2,10 @@
 
 return [
 
+            "temporary_file_upload" => [
+                "rules" => "file|mimes:pdf,zip|max:102400",
+            ],
+
     /*
     |--------------------------------------------------------------------------
     | Broadcasting

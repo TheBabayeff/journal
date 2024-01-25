@@ -26,8 +26,12 @@
                     </div>
                     <!-- end blog-post -->
                     <ul class="pagination">
-                        <li class="page-item"> <a class="page-link" href="#">Prev Post</a> </li>
-                        <li class="page-item"><a class="page-link" href="#">Next Post</a></li>
+                        @if($prevPost)
+                            <li class="page-item"> <a class="page-link" href="{{ route('article.show', $prevPost->slug) }}">Prev Post</a> </li>
+                        @endif
+                        @if($nextPost)
+                            <li class="page-item"><a class="page-link" href="{{ route('article.show', $nextPost->slug) }}">Next Post</a></li>
+                        @endif
                     </ul>
                     <!-- end pagination -->
                 </div>

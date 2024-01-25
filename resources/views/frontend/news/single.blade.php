@@ -18,7 +18,7 @@
                 <div class="col-lg-12">
                     <div class="blog-post">
                         <figure data-scroll data-scroll-speed="-1"><img src="{{ asset("storage/" . $news->photo) }}" alt="Image"></figure>
-                        <div class="content-box"> <small>Dec 26, 2020</small>
+                        <div class="content-box"> <small>{{ $news->published_at }}</small>
                             <h3>{{ $news->title }}</h3>
                             <p>{{ $news->content }}</p>
                         </div>
@@ -26,8 +26,12 @@
                     </div>
                     <!-- end blog-post -->
                     <ul class="pagination">
-                        <li class="page-item"> <a class="page-link" href="#">Prev Post</a> </li>
-                        <li class="page-item"><a class="page-link" href="#">Next Post</a></li>
+                        @if($prevPost)
+                         <li class="page-item"> <a class="page-link" href="{{ route('news.show', $prevPost->slug) }}">Prev Post</a> </li>
+                        @endif
+                        @if($nextPost)
+                         <li class="page-item"><a class="page-link" href="{{ route('news.show', $nextPost->slug) }}">Next Post</a></li>
+                        @endif
                     </ul>
                     <!-- end pagination -->
                 </div>

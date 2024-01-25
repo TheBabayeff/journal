@@ -20,7 +20,8 @@ class NewsController extends Controller
     public function show($slug)
     {
         $news = News::where('slug', $slug)->firstOrFail();
-
-        return view('frontend.news.single', compact('news'));
+        $prevPost = News::where('id', '<', $news->id)->orderBy('id', 'desc')->first();
+        $nextPost = News::where('id', '>', $news->id)->orderBy('id', 'asc')->first();
+        return view('frontend.news.single', compact('news', 'prevPost','nextPost'));
     }
 }

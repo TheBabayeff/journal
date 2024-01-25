@@ -19,6 +19,9 @@ class ArticleController extends Controller
     {
         $article = Article::where('slug', $slug)->firstOrFail();
 
-        return view('frontend.articles.single', compact('article'));
+        $prevPost = Article::where('id', '<', $article->id)->orderBy('id', 'desc')->first();
+        $nextPost = Article::where('id', '>', $article->id)->orderBy('id', 'asc')->first();
+
+        return view('frontend.articles.single', compact('article', 'prevPost', 'nextPost'));
     }
 }

@@ -11,5 +11,12 @@ return [
     'subscribe' => 'Subscribe',
     'subscribe_us' => 'Sign up to get the latest news',
     'chairmen' => 'Chairmen',
+    'gallery' => 'Gallery',
+
+
+    'latest_news_and_updates' => 'Latest News and Updates',
+
+    'contact_with_us' => 'Contact with Us',
+
 
 ];

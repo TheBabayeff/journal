@@ -21,4 +21,14 @@ class HomeController extends Controller
         $galleries = Gallery::inRandomOrder()->limit(4)->get();
         return view('frontend.index', compact('journals', 'news', 'articles','chairmens','galleries'));
     }
+
+    public function about()
+    {
+        return view('frontend.about');
+    }
+
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
 }
