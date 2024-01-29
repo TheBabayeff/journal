@@ -10,7 +10,7 @@ class ChairmenController extends Controller
 {
     public function index()
     {
-        $chairmens = Chairmen::all();
+        $chairmens = Chairmen::inRandomOrder()->get();
 
         return view('frontend.chairmen.index' , compact('chairmens'));
     }

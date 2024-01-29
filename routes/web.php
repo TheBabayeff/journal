@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\ChairmenController;
+use App\Http\Controllers\Frontend\GalleryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\JournalController;
 use App\Http\Controllers\NewsController;
@@ -39,6 +40,9 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('/news',[NewsController::class,'index'])->name('news');
 Route::get('/news/{slug}',[NewsController::class,'show'])->name('news.show');
+
+Route::get('/galleries', [GalleryController::class, 'index'])->name('galleries');
+Route::get('/galleries/{id}', [GalleryController::class, 'show'])->name('gallery.show');
 
 Route::get('/journals',[JournalController::class,'index'])->name('journals');
 Route::get('/journals/{id}',[JournalController::class,'show'])->name('journal.show');

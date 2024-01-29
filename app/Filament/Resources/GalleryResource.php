@@ -25,7 +25,12 @@ class GalleryResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name'),
                 Forms\Components\FileUpload::make('image')
+                    ->imageEditor()
+                    ->imageEditorViewportWidth('1080')
+                    ->imageEditorViewportHeight('1080')
                     ->downloadable()
+                    ->multiple()
+                    ->enableReordering()
                     ->directory('gallery-photos'),
             ]);
     }

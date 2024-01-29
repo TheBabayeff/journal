@@ -1,3 +1,5 @@
+
+
 @extends('frontend.layouts.app')
 @section('content')
     <header class="page-header" data-background="images/page-header.jpg">
@@ -15,22 +17,22 @@
         <div class="container">
             <div class="row justify-content-center">
                 @foreach($articles AS $article)
-                <div class="col-lg-4 col-md-6">
-                    <div class="exhibition-box" data-scroll data-scroll-speed="-1" >
-                        <figure> <a href="{{ route('article.show' , $article->slug) }}"><img src="{{ asset("storage/" . $article->photo) }}" alt="Image" class="img"></a>
-                            <div class="info">
-                                <figure class="i"><img src="{{ asset("assets/images/icon-info.png") }}" alt="Image"></figure>
-                                <span><a href="{{ route('article.show' , $article->slug) }}">Ətraflı oxu </a></span> </div>
-                            <!-- end info -->
-                        </figure>
-                        <div class="content-box">
-                            <h4><a href="{{ route('article.show' , $article->slug) }}">{{ \Illuminate\Support\Str::limit($article->title, 25) }}</a></h4>
-                            <p> {{ $article->created_at }}</p>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="exhibition-box" data-scroll data-scroll-speed="-1" >
+                            <figure> <a href="{{ route('article.show' , $article->slug) }}"><img src="{{ asset("storage/" . $article->photo) }}" alt="Image" class="img"></a>
+                                <div class="info">
+                                    <figure class="i"><img src="{{ asset("assets/images/icon-info.png") }}" alt="Image"></figure>
+                                    <span><a href="{{ route('article.show' , $article->slug) }}">Ətraflı oxu </a></span> </div>
+                                <!-- end info -->
+                            </figure>
+                            <div class="content-box">
+                                <h4><a href="{{ route('article.show' , $article->slug) }}">{{ \Illuminate\Support\Str::limit($article->title, 25) }}</a></h4>
+                                <p> {{ $article->created_at }}</p>
+                            </div>
+                            <!-- end content-box -->
                         </div>
-                        <!-- end content-box -->
+                        <!-- end exhibition-box -->
                     </div>
-                    <!-- end exhibition-box -->
-                </div>
                 @endforeach
                 <!-- end col-4 -->
             </div>
@@ -41,3 +43,4 @@
     <!-- end content-section -->
     @include('frontend.components.subscribe')
 @endsection
+

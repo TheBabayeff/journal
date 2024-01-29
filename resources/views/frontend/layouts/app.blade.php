@@ -116,6 +116,7 @@
                         <li><a href="#">{{ __('frontend.home') }}</a></li>
                         <li><a href="#">{{ __('frontend.article') }}<</a></li>
                         <li><a href="#">{{ __('frontend.news') }}</a></li>
+                        <li><a href="#">{{ __('frontend.gallery') }}</a></li>
                         <li><a href="#">{{ __('frontend.about') }}</a></li>
                         <li><a href="#">{{ __('frontend.contact') }}</a></li>
                     </ul>
@@ -141,9 +142,10 @@
                 <ul>
                     <li><a href="{{ route('welcome') }}">{{ __('frontend.home') }}</a></li>
                     <li><a href="{{ route('articles')  }}">{{ __('frontend.article') }}</a></li>
+                    <li><a href="{{ route('journals')  }}">{{ __('frontend.publications') }}</a></li>
                     <li><a href="{{ route('news')  }}">{{ __('frontend.news') }}</a></li>
                     <li><a href="{{ route('chairmen')  }}">{{ __('frontend.chairmen') }}</a></li>
-                    <li><a href="#">{{ __('frontend.gallery') }}</a></li>
+                    <li><a href="{{ route('galleries')  }}">{{ __('frontend.gallery') }}</a></li>
                     <li><a href="{{ route('contact')  }}">{{ __('frontend.contact') }}</a></li>
                 </ul>
             </div>

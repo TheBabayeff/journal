@@ -320,7 +320,7 @@
                         <div class="row">
                             @foreach($galleries AS $gallery)
                             <div class="col-md-3">
-                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="{{ asset("storage/" . $gallery->image) }}" alt="{{ $gallery->name }}"> </figure>
+                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="{{ asset("storage/" . $gallery->image[0]) }}" alt="{{ $gallery->name }}"> </figure>
                             </div>
                             @endforeach
                             <!-- end col-3 -->
@@ -328,21 +328,6 @@
                         <!-- end row -->
                     </div>
                     <!-- end container-fluid -->
-                </div>
-                <!-- end scroll-wrapper -->
-                <div class="scroll-wrapper">
-                    <div class="container-fluid">
-                        <div class="row">
-                            @foreach($galleries AS $gallery)
-                            <div class="col-md-3">
-                                <figure class="image-box" data-scroll data-scroll-speed="0"> <img src="{{ asset("storage/" . $gallery->image) }}" alt="Image"> </figure>
-                            </div>
-                            @endforeach
-                            <!-- end col-3 -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-                    <!-- container-fluid -->
                 </div>
                 <!-- end scroll-wrapper -->
             </div>

@@ -12,6 +12,7 @@ return [
     'subscribe_us' => 'Sign up to get the latest news',
     'chairmen' => 'Chairmen',
     'gallery' => 'Gallery',
+    'downloadPdf' => 'Download PDF',
 
 
     'latest_news_and_updates' => 'Latest News and Updates',
