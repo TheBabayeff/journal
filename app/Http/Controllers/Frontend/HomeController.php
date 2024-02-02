@@ -22,7 +22,6 @@ class HomeController extends Controller
         $galleries = Gallery::inRandomOrder()->limit(4)->get();
         $slides    = Slide::where('is_visible', true)->get();
 
-
         return view('frontend.index', compact('journals', 'news', 'articles','chairmens','galleries','slides'));
     }
 
