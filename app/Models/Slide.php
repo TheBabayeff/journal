@@ -9,11 +9,12 @@ class Slide extends Model
 {
     use HasFactory;
 
+    protected $table = "slides";
 
     protected $fillable =
         [
           'title',
-          'text'.
+          'text',
           'image',
           'video',
           'is_visible',

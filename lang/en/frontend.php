@@ -13,6 +13,7 @@ return [
     'chairmen' => 'Chairmen',
     'gallery' => 'Gallery',
     'downloadPdf' => 'Download PDF',
+    'see_all' => 'See All',
 
 
     'latest_news_and_updates' => 'Latest News and Updates',

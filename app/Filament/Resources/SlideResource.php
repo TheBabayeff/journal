@@ -3,16 +3,12 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SlideResource\Pages;
-use App\Filament\Resources\SlideResource\RelationManagers;
 use App\Models\Slide;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-
 class SlideResource extends Resource
 {
     protected static ?string $model = Slide::class;
@@ -26,12 +22,16 @@ class SlideResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->maxLength(255),
                 Forms\Components\Textarea::make('text')
-                    ->maxLength(65535)
-                    ->columnSpanFull(),
+                    ->maxLength(350),
                 Forms\Components\FileUpload::make('image')
-                    ->image(),
-                Forms\Components\TextInput::make('video')
-                    ->maxLength(255),
+                    ->downloadable()
+                    ->directory('slide-photos')
+                    ->columnSpanFull(),
+                Forms\Components\FileUpload::make('video')
+                    ->downloadable()
+                    ->directory('slide-video')
+                    ->columnSpanFull(),
+
                 Forms\Components\Toggle::make('is_visible')
                     ->required(),
             ]);

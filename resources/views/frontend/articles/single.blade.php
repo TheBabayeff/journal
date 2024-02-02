@@ -20,7 +20,7 @@
                         <figure data-scroll data-scroll-speed="-1"><img src="{{ asset("storage/" . $article->photo) }}" alt="Image"></figure>
                         <div class="content-box"> <small>Dec 26, 2020</small>
                             <h3>{{ $article->title }}</h3>
-                            <p>{{ $article->content }}</p>
+                            <p>{!! \App\Helpers\MarkdownHelper::toHtml($article->content) !!}</p>
                         </div>
                         <!-- end content-box -->
                     </div>

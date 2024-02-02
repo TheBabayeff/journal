@@ -13,6 +13,7 @@ return [
     'chairmen' => 'İdarə Heyəti',
     'gallery' => 'Qalereya',
     'downloadPdf' => 'Jurnalı yüklə(PDF)',
+    'see_all' => 'Hamısına bax',
 
     'latest_news_and_updates' => 'Son xəbərlər və yeniliklər',
 

@@ -11,6 +11,7 @@
         "php": "^8.1",
         "bezhansalleh/filament-language-switch": "^3.0",
         "cms-multi/filament-clear-cache": "^2.0",
+        "erusev/parsedown": "^1.7",
         "filament/filament": "^3.0-stable",
         "filament/spatie-laravel-media-library-plugin": "^3.0-stable",
         "guzzlehttp/guzzle": "^7.2",

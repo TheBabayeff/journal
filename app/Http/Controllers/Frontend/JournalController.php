@@ -18,6 +18,7 @@ class JournalController extends Controller
     public function show($id)
     {
         $journal = Journal::findOrFail($id);
-       return view('frontend.journals.single', compact('journal'));
+        $journals = Journal::inRandomOrder(6)->get();
+       return view('frontend.journals.single', compact('journal', 'journals'));
     }
 }

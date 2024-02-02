@@ -7,7 +7,7 @@
                     <div class="side-content left">
                         <small>{{ __('frontend.chairmen') }}</small>
                         <h2>{{ $chairman->title }}</h2>
-                        <p>{{ $chairman->description }}</p>
+                        <p>{!! \App\Helpers\MarkdownHelper::toHtml($chairman->description) !!}</p>
                     </div>
                     <!-- end side-content -->
                 </div>
