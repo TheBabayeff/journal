@@ -440,4 +440,48 @@
   });
 
 
+    // OWL Carousel
+    $(".owl-carousel").owlCarousel({
+        loop:true,
+        nav:false,
+        center:true,
+        dots:true,
+        autoplay:false,
+        autoplayTimeout:3000,
+        autoplayHoverPause:false,
+        smartSpeed:450,
+        responsive:{
+            375:{
+                items:1
+            },
+            640:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            1024:{
+                items:2
+            }
+        }
+    });
+
+    // OWL Slide
+    $(".owl-slide").owlCarousel({
+        items:1,
+        loop:true,
+        nav:false,
+        center:true,
+        dots:true,
+        autoplay:false,
+        autoplayTimeout:3000,
+        autoplayHoverPause:false,
+        smartSpeed:450
+    });
+
+
+
+
+
+
 })(jQuery);

@@ -14,7 +14,7 @@
     <section class="content-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     @foreach($news AS $n)
                     <div class="blog-post">
                         <figure data-scroll data-scroll-speed="-1"><img src="{{ asset("storage/" . $n->photo) }}" alt="Image"></figure>
@@ -37,39 +37,7 @@
                     <!-- end pagination -->
                 </div>
                 <!-- end col-8 -->
-                <div class="col-lg-4">
-                    <aside class="sidebar">
-                        <div class="widget">
-                            <h6 class="widget-title">SEARCH</h6>
-                            <form>
-                                <input type="search" placeholder="Type here to search">
-                                <input type="submit" value="Search">
-                            </form>
-                        </div>
-                        <!-- end widget -->
-                        <div class="widget">
-                            <h6 class="widget-title">Məqalələr</h6>
-                            <ul class="categories">
-                                @foreach($articles AS $article)
-                                <li><a href="#">{{ \Illuminate\Support\Str::limit($article->title, 20) }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <!-- end widget -->
 
-                        <div class="widget">
-                            <h6 class="widget-title">GALLERY</h6>
-                            <ul class="widget-gallery">
-                                @foreach($galleries AS $gallery)
-                                <li><a href="{{ asset("storage/" . $gallery->image) }}" data-fancybox ><img src="{{ asset("storage/" . $gallery->image) }}" alt="Image"></a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        <!-- end widget -->
-                    </aside>
-                    <!-- end sidebar -->
-                </div>
-                <!-- end col-4 -->
             </div>
             <!-- end row -->
         </div>

@@ -993,7 +993,7 @@ button[type="submit"] i {
 
 /* SLIDER */
 .slider {
-  width: 100%;
+  width: 50%;
   height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -1657,7 +1657,7 @@ button[type="submit"] i {
   content: "";
   width: 1px;
   height: 64px;
-  background: #080808;
+  background: transparent;
   position: absolute;
   left: calc(50% - 0.5px);
   bottom: -32px;
@@ -3921,3 +3921,40 @@ button[type="submit"] i {
     d: path("M540,1080H0V0h540c31.96,142.05,60.09,325.94,60,541C599.91,755.16,571.87,938.34,540,1080z");
   }
 }
+
+
+
+
+/* HIGHLIGHT ROOMS */
+.highlight-rooms{ width: 100%; float: left; padding: 100px 0;}
+.highlight-rooms h2{font-family: 'Playfair Display', serif; font-size: 60px; margin-bottom: 80px; margin-left: -5px;}
+.highlight-rooms h5{font-family: 'Fjalla One', sans-serif; color: #999; margin-top: 25%;}
+.highlight-rooms h5:before{content: ""; width: 100px; height: 1px; float: left; background: #999; margin-top: 7px; margin-right: 7px;}
+.highlight-rooms .button{ height: 50px; line-height: 50px; display: inline-block; border: 1px solid #ccc; padding: 0 40px; color: #999; font-family: 'Fjalla One', sans-serif; box-shadow: 10px 10px 30px rgba(0,0,0,0.05); overflow: hidden;}
+.highlight-rooms .button *{-webkit-transition: .25s ease-in-out;-moz-transition: .25s ease-in-out;-ms-transition: .25s ease-in-out; -o-transition: .25s ease-in-out; transition: .25s ease-in-out;}
+.highlight-rooms .button span { position: relative; display: inline-block;}
+.highlight-rooms .button span:before {position: absolute;top: 100%; content: attr(data-hover); }
+.highlight-rooms .button span:before {-webkit-transform: translate3d(0,0,0);-moz-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+.highlight-rooms .button:hover span{-webkit-transform: translateY(-100%);-moz-transform: translateY(-100%);transform: translateY(-100%);}
+.highlight-rooms .room-box{ width: 100%; float: left;}
+.highlight-rooms .room-box img{ width: 100%; opacity: 0.5;}
+.highlight-rooms .room-box .room-details{ width: 100%; height: 0; float: left; margin-top: -90px; overflow: hidden; position: relative; padding: 0; color: #fff;}
+.highlight-rooms .room-box .room-details .room-name{font-family: 'Playfair Display', serif; color: #fff; font-size: 37px; margin-top: 0;}
+.highlight-rooms .room-box .room-details .room-desc{ width: 100%; float: left; font-family: 'Fjalla One', sans-serif; text-transform: uppercase; color: #fff; margin-bottom: 10px; opacity: 0.4;}
+.highlight-rooms .room-box .room-details .room-price{ width: 100%; float: left; text-align: right; font-size: 40px;}
+.highlight-rooms .room-box .room-details .room-price small{ font-size: 17px;}
+.highlight-rooms .room-box .room-details .room-price span{ width: 100%; float: left; font-size: 10px; margin-top: -10px;}
+.highlight-rooms .room-box .room-details .room-button{ height: 50px; line-height: 50px; display: inline-block; border: 1px solid #ccc; padding: 0 40px; color: #999; font-family: 'Fjalla One', sans-serif; box-shadow: 10px 10px 30px rgba(0,0,0,0.05); overflow: hidden;}
+.highlight-rooms .room-box .room-details .room-button *{-webkit-transition: .25s ease-in-out;-moz-transition: .25s ease-in-out;-ms-transition: .25s ease-in-out; -o-transition: .25s ease-in-out; transition: .25s ease-in-out;}
+.highlight-rooms .room-box .room-details .room-button span { position: relative; display: inline-block;}
+.highlight-rooms .room-box .room-details .room-button span:before {position: absolute;top: 100%; content: attr(data-hover); }
+.highlight-rooms .room-box .room-details .room-button span:before {-webkit-transform: translate3d(0,0,0);-moz-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+.highlight-rooms .room-box .room-details .room-button:hover span{-webkit-transform: translateY(-100%);-moz-transform: translateY(-100%);transform: translateY(-100%); color: #fff;}
+.highlight-rooms .center { z-index: 2;}
+.highlight-rooms .center .room-box{width: 120%; margin-left: -10%; margin-top: -50px; box-shadow: 10px 10px 30px rgba(0,0,0,0.15);}
+.highlight-rooms .center .room-box img{opacity: 1;}
+.highlight-rooms .center .room-box .room-details{ height: auto; margin-top: -186px; background: #1c1b21; padding: 20px 25px;}
+.highlight-rooms .owl-item{padding:30px 0; }
+.highlight-rooms .owl-dots{ width: 100%; float: left; text-align: center;}
+.highlight-rooms .owl-dots .owl-dot{ width: 16px; height: 3px; display: inline-block; background: #ccc; margin: 0 2px;}
+.highlight-rooms .owl-dots .owl-dot.active{width: 36px; background: #000;}

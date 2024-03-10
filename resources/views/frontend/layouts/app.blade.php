@@ -11,7 +11,7 @@
     <meta name="keywords" content="exhibition, museum, art, history, entry, ticket, contemporary, modern, booking, visit, culture, life, centuries, , , ">
 
 
-    <link href="ico/favicon.png" rel="shortcut icon">
+    <link href="{{ asset('assets/ico/favicon.png') }}" rel="shortcut icon">
 
     <!-- CSS FILES -->
     <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}">
@@ -28,9 +28,10 @@
         <path d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,0 Z"></path>
     </svg>
     <div class="inner">
-        <canvas class="progress-bar" id="progress-bar" width="200" height="200"></canvas>
-        <figure><img src="{{ asset('assets/images/qorqud.png') }}" alt="Image"></figure>
-        <small>Azərbaycan Dünyası</small> </div>
+        <canvas class="progress-bar" id="progress-bar" width="25" height="25"></canvas>
+        <figure><img src="{{ asset('assets/images/qorqud.png') }}" style="height: 150px;" alt="Image"></figure>
+
+    </div>
     <!-- end inner -->
 </div>
 <!-- end preloder -->
@@ -45,25 +46,11 @@
         <div class="search-box">
             <div class="container">
                 <div class="form">
-                    <h3>SEARCH EVENT</h3>
-                    <input type="search" placeholder="What are you looking for ?">
+                    <h3>Nə axtarırıq?</h3>
+                    <input type="search" placeholder="Axtarış mətnini yazın...">
                     <input type="submit" value="SEARCH">
                 </div>
                 <!-- end form -->
-                <div class="search-events">
-                    <ul>
-                        <li>
-                            <h5><a href="#">"Azərbaycan Dünyası" jurnalının İdarə Heyyəti</a></h5>
-                            <small>15 August – 31 October 2020</small> </li>
-                        <li>
-                            <h5><a href="#">İnformasiya Nazirliyində qeydiyyatdan keçmişdir. Maria</a></h5>
-                            <small>15 August – 31 October 2020</small> </li>
-                        <li>
-                            <h5><a href="#">İnformasiya Nazirliyində qeydiyyatdan keçmişdir.</a></h5>
-                            <small>15 August – 31 October 2020</small> </li>
-                    </ul>
-                </div>
-                <!-- end search-events -->
             </div>
         </div>
         <!-- end search-box -->
@@ -74,25 +61,7 @@
             <figure class="logo"> <img src="{{ asset("assets/images/World.png") }}" alt="Image"> </figure>
             <!-- end logo -->
             <div class="inner">
-                <div class="widget">
-                    <figure><img src="assets/images/sidebar.png" width="200px;" alt="Image"></figure>
-                    <p>"Dədə Qorqud" Milli Fondunun Ağsaqqallar Şurası "Azərbaycan Dünyası" jurnalının İdarə Heyyəti
-                        </br>
-                        <br/>
-                        Arif Paşayev , Eldar İsmayılov
-                        <br/>
-                        <br/>
-                        Bədrəddin Dalan , Məhəmməd Qurbanov
-                        <br/>
-                        İsgəndər Xəlilov , Səfər Əbiyev
-                        Çingiz İsayev ,Şəmsəddin Xanbabayev
-                        Rəşid Rzayev, Nazim Abbasov
-                        Fatimə Hacıyeva, Sədaqət Qəhrəmanova
-                        Melix Yevdayev, Rafat Əliyev
-                        Emil MirzəyevSabir Dadaşov
-                        Vəhdət Sultanzadə, Rafiq Əziz
-                        Namiq Əliyev , Sakit Məmmədov</p>
-                </div>
+
                 <!-- end widget -->
                 <div class="widget">
                     <h6 class="widget-title">Mir Azerbaydjana</h6>
@@ -113,12 +82,13 @@
                 <!-- end custom-menu -->
                 <div class="site-menu">
                     <ul>
-                        <li><a href="#">{{ __('frontend.home') }}</a></li>
-                        <li><a href="#">{{ __('frontend.article') }}<</a></li>
-                        <li><a href="#">{{ __('frontend.news') }}</a></li>
-                        <li><a href="#">{{ __('frontend.gallery') }}</a></li>
-                        <li><a href="#">{{ __('frontend.about') }}</a></li>
-                        <li><a href="#">{{ __('frontend.contact') }}</a></li>
+                        <li><a href="{{ route('welcome') }}">{{ __('frontend.home') }}</a></li>
+                        <li><a href="{{ route('articles')  }}">{{ __('frontend.article') }}</a></li>
+                        <li><a href="{{ route('journals')  }}">{{ __('frontend.publications') }}</a></li>
+                        <li><a href="{{ route('news')  }}">{{ __('frontend.news') }}</a></li>
+                        <li><a href="{{ route('chairmen')  }}">{{ __('frontend.chairmen') }}</a></li>
+                        <li><a href="{{ route('galleries')  }}">{{ __('frontend.gallery') }}</a></li>
+                        <li><a href="{{ route('contact')  }}">{{ __('frontend.contact') }}</a></li>
                     </ul>
                 </div>
                 <!-- end site-menu -->
@@ -178,6 +148,7 @@
                             <li><a href="{{ route('contact') }}">{{ __('frontend.contact') }}</a></li>
                             <li><a href="{{ route('chairmen') }}">{{ __('frontend.chairmen') }}</a></li>
                             <li><a href="{{ route('articles') }}">{{ __('frontend.article') }}</a></li>
+                            <li><a href="{{ route('galleries') }}">{{ __('frontend.gallery') }}</a></li>
                         </ul>
                     </div>
                     <!-- end col-4 -->
@@ -224,6 +195,7 @@
 <script src="{{ asset('assets/js/kinetic-slider.js') }}"></script>
 <script src="{{ asset('assets/js/fancybox.min.js') }}"></script>
 <script src="{{ asset('assets/js/odometer.min.js') }}"></script>
+<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/js/swiper.min.js') }}"></script>
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
 
