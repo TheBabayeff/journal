@@ -64,8 +64,13 @@
 
                 <!-- end widget -->
                 <div class="widget">
-                    <h6 class="widget-title">Mir Azerbaydjana</h6>
+
+                    <p>Jurnal 1998-ci ildə Azərbaycan Respublikasının Nəşr və Məlumat Nazirliyində qeydiyyatdan keçmişdir.Qeydiyyat şəhadətnaməsi nömrə- 639.
+                        Redaksiyanın fikri müəllifin fikri ilə uyğunlaşmaya bilər.</p>
                     <p>Jurnal 1998-ci ildə Azərbaycan Respublikasının Mətbuat və İnformasiya Nazirliyində qeydiyyatdan keçmişdir.</p>
+                    <h6 class="widget-title">www.AzerbaycanDunyasi.az</h6>
+                    <h6 class="widget-title">www.WorldOfAzerbaijan.az</h6>
+                    <h6 class="widget-title">www.Mir-Azerbaydjana.az</h6>
                 </div>
                 <!-- end widget -->
             </div>
@@ -156,19 +161,19 @@
                         <h6 class="widget-title">{{ __('frontend.contact') }}</h6>
                         <ul class="social-media">
                             <li><a href="#"><i class="fab fa-facebook-f"></i> /Azərbaycan Dünyası</a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i> /Azərbaycan Dünyası</a></li>
                             <li><a href="#"><i class="fab fa-youtube"></i> /Azərbaycan Dünyası</a></li>
                             <li><a href="#"><i class="fab fa-whatsapp"></i> (+99450) 444 88 00</a></li>
                             <li><a href="#"><i class="fa fa-phone"></i>  (+99450) 364 46 01 </a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>  (+99450) 992 29 96 </a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> info@azerbaycandunyasi.az</a></li>
                         </ul>
                     </div>
                     <!-- end col-4 -->
                     <div class="col-lg-4">
                         <h6 class="widget-title">Visit Us Now</h6>
                         <address class="address">
-                            Az1000, Azərbaycan Respublikası, <br/>
-                            Bakı şəh., Nizami 91  <br/><br/>
-                            <strong> Tiraj 5000</strong>
+                            Az1073, Azərbaycan Respublikası, <br/>
+                            Bakı şəh, Mətbuat prospekti 524 "Azərbaycan nəşriyyatı" <br/><br/>
                         </address>
                     </div>
                     <!-- end col-4 -->

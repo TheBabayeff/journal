@@ -1,11 +1,6 @@
 /*
 
-@Author: Themezinho
-@URL: http://www.themezinho.net
 
-This file contains the styling for the actual theme, this
-is the file you need to edit to change the look of the
-theme.
 
 
 	// Table of contents //
@@ -993,8 +988,8 @@ button[type="submit"] i {
 
 /* SLIDER */
 .slider {
-  width: 50%;
-  height: 100vh;
+  width: 100%;
+  height: 40vh;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

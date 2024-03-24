@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Frontend\ArticleController;
 use App\Http\Controllers\Frontend\ChairmenController;
+use App\Http\Controllers\Frontend\ChildrenController;
+use App\Http\Controllers\Frontend\FundRewardsController;
 use App\Http\Controllers\Frontend\GalleryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\JournalController;
@@ -38,8 +40,16 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
+Route::post('/subscribe', [HomeController::class, 'subscribe'])->name('subscribe');
+
 Route::get('/news',[NewsController::class,'index'])->name('news');
 Route::get('/news/{slug}',[NewsController::class,'show'])->name('news.show');
+
+Route::get('/children',[ChildrenController::class,'index'])->name('children');
+Route::get('/children/{id}',[ChildrenController::class,'show'])->name('children.show');
+
+Route::get('/rewards',[FundRewardsController::class,'index'])->name('rewards');
+Route::get('/rewards/{id}',[FundRewardsController::class,'show'])->name('rewards.show');
 
 Route::get('/galleries', [GalleryController::class, 'index'])->name('galleries');
 Route::get('/galleries/{id}', [GalleryController::class, 'show'])->name('gallery.show');

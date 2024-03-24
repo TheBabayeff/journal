@@ -17,7 +17,7 @@
                 <div class="col-lg-12">
                     @foreach($news AS $n)
                     <div class="blog-post">
-                        <figure data-scroll data-scroll-speed="-1"><img src="{{ asset("storage/" . $n->photo) }}" alt="Image"></figure>
+                        <figure data-scroll data-scroll-speed="-1"><img src="{{ asset("storage/" . $n->photo) }}" alt="Image" style="width: 50%"></figure>
                         <div class="content-box"> <small>{{ $n->published_at }}</small>
                             <h3>{{ $n->title }}</h3>
                             <p>{{ \Illuminate\Support\Str::limit($n->content, 150) }} </p>

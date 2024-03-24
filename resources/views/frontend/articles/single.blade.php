@@ -17,8 +17,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="blog-post">
-                        <figure data-scroll data-scroll-speed="-1"><img src="{{ asset("storage/" . $article->photo) }}" alt="Image"></figure>
-                        <div class="content-box"> <small>Dec 26, 2020</small>
+                        <figure data-scroll data-scroll-speed="-1"><img src="{{ asset("storage/" . $article->photo) }}" style="width: 50%" alt="Image"></figure>
+                        <div class="content-box"> <small>{{ $article->published_at }}</small>
                             <h3>{{ $article->title }}</h3>
                             <p>{!! \App\Helpers\MarkdownHelper::toHtml($article->content) !!}</p>
                         </div>

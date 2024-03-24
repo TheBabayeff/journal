@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ChildResource\Pages;
-use App\Filament\Resources\ChildResource\RelationManagers;
-use App\Models\Child;
+use App\Filament\Resources\FundRewardResource\Pages;
+use App\Filament\Resources\FundRewardResource\RelationManagers;
+use App\Models\FundReward;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
-class ChildResource extends Resource
+class FundRewardResource extends Resource
 {
-    protected static ?string $model = Child::class;
+    protected static ?string $model = FundReward::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,25 +24,25 @@ class ChildResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->live(onBlur: true)
-                    ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
+              Forms\Components\TextInput::make('title')
+                  ->required()
+                  ->live(onBlur: true)
+                  ->afterStateUpdated(fn (string $operation, $state, Forms\Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
 
                 Forms\Components\TextInput::make('slug')
                     ->disabled()
                     ->dehydrated()
                     ->required()
-                    ->unique(Child::class, 'slug', ignoreRecord: true),
+                    ->unique(FundReward::class, 'slug', ignoreRecord: true),
                 Forms\Components\FileUpload::make('photo')
                     ->downloadable()
                     ->reorderable()
                     ->multiple()
-                    ->directory('child-photos')
+                    ->directory('fundRewards-photos')
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('video')
-                    ->directory('child-video')
+                    ->directory('fundRewards-video')
                     ->columnSpanFull(),
                 Forms\Components\MarkdownEditor::make('content')
                     ->required()
@@ -90,9 +90,9 @@ class ChildResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListChildren::route('/'),
-            'create' => Pages\CreateChild::route('/create'),
-            'edit' => Pages\EditChild::route('/{record}/edit'),
+            'index' => Pages\ListFundRewards::route('/'),
+            'create' => Pages\CreateFundReward::route('/create'),
+            'edit' => Pages\EditFundReward::route('/{record}/edit'),
         ];
     }
 }
